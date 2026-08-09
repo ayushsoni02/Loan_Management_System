@@ -7,6 +7,7 @@ import path from "path";
 import authRoutes from "./routes/auth.routes";
 import borrowerRoutes from "./routes/borrower.routes";
 import loanRoutes from "./routes/loan.routes";
+import dashboardRoutes from "./routes/dashboard.routes";
 
 dotenv.config();
 
@@ -35,5 +36,6 @@ app.get("/api/health", (req, res) => {
 app.use("/api/auth", authRoutes);
 app.use("/api/borrower", borrowerRoutes);
 app.use("/api/loans", loanRoutes);
+app.use("/api/dashboard", dashboardRoutes);
 
 export default app;
