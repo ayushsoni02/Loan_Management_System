@@ -50,29 +50,29 @@ export default function LoanConfigPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 flex flex-col items-center py-12 px-4 font-sans">
+    <div className="min-h-screen bg-gray-50 dark:bg-[#0a0a0a] flex flex-col items-center py-12 px-4 font-sans transition-colors">
       {/* Steps indicator */}
       <div className="flex items-center space-x-4 mb-8">
-        <div className="flex items-center text-black">
-          <div className="w-8 h-8 rounded-full border-2 border-black flex items-center justify-center font-bold bg-black text-white">1</div>
+        <div className="flex items-center text-black dark:text-white">
+          <div className="w-8 h-8 rounded-full border-2 border-black dark:border-white flex items-center justify-center font-bold bg-black dark:bg-white text-white dark:text-black">1</div>
         </div>
-        <div className="w-12 h-1 bg-black rounded"></div>
-        <div className="flex items-center text-black">
-          <div className="w-8 h-8 rounded-full border-2 border-black flex items-center justify-center font-bold bg-black text-white">2</div>
+        <div className="w-12 h-1 bg-black dark:bg-white rounded"></div>
+        <div className="flex items-center text-black dark:text-white">
+          <div className="w-8 h-8 rounded-full border-2 border-black dark:border-white flex items-center justify-center font-bold bg-black dark:bg-white text-white dark:text-black">2</div>
         </div>
-        <div className="w-12 h-1 bg-black rounded"></div>
-        <div className="flex items-center text-black">
-          <div className="w-8 h-8 rounded-full border-2 border-black flex items-center justify-center font-bold">3</div>
+        <div className="w-12 h-1 bg-black dark:bg-white rounded"></div>
+        <div className="flex items-center text-black dark:text-white">
+          <div className="w-8 h-8 rounded-full border-2 border-black dark:border-white flex items-center justify-center font-bold">3</div>
           <span className="ml-2 font-medium">Configure Loan</span>
         </div>
       </div>
 
-      <div className="w-full max-w-2xl bg-white border border-gray-200 rounded-2xl p-8 shadow-sm">
-        <div className="flex items-center mb-6 space-x-3 border-b border-gray-200 pb-4">
-          <div className="bg-gray-100 p-2 rounded-lg border border-gray-200">
-            <Calculator className="w-5 h-5 text-black" />
+      <div className="w-full max-w-2xl bg-white dark:bg-black border border-gray-200 dark:border-gray-800 rounded-2xl p-8 shadow-sm">
+        <div className="flex items-center mb-6 space-x-3 border-b border-gray-200 dark:border-gray-800 pb-4">
+          <div className="bg-gray-100 dark:bg-gray-900 p-2 rounded-lg border border-gray-200 dark:border-gray-800">
+            <Calculator className="w-5 h-5 text-black dark:text-white" />
           </div>
-          <h2 className="text-xl font-bold text-black">Configure Your Loan</h2>
+          <h2 className="text-xl font-bold text-black dark:text-white">Configure Your Loan</h2>
         </div>
 
         <form onSubmit={handleSubmit} className="space-y-8">
@@ -80,8 +80,8 @@ export default function LoanConfigPage() {
           <div className="space-y-6">
             <div>
               <div className="flex justify-between mb-2">
-                <label className="text-sm font-medium text-gray-700">Loan Amount (Principal)</label>
-                <span className="text-black font-bold border-b-2 border-black pb-0.5">₹ {principal.toLocaleString("en-IN")}</span>
+                <label className="text-sm font-medium text-gray-700 dark:text-gray-300">Loan Amount (Principal)</label>
+                <span className="text-black dark:text-white font-bold border-b-2 border-black dark:border-white pb-0.5">₹ {principal.toLocaleString("en-IN")}</span>
               </div>
               <input
                 type="range"
@@ -90,7 +90,7 @@ export default function LoanConfigPage() {
                 step="10000"
                 value={principal}
                 onChange={(e) => setPrincipal(Number(e.target.value))}
-                className="w-full h-1.5 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-black"
+                className="w-full h-1.5 bg-gray-200 dark:bg-gray-700 rounded-lg appearance-none cursor-pointer accent-black dark:accent-white"
               />
               <div className="flex justify-between text-xs text-gray-400 mt-1.5 font-medium">
                 <span>₹ 50K</span>
@@ -100,8 +100,8 @@ export default function LoanConfigPage() {
 
             <div>
               <div className="flex justify-between mb-2">
-                <label className="text-sm font-medium text-gray-700">Tenure (Days)</label>
-                <span className="text-black font-bold border-b-2 border-black pb-0.5">{tenureDays} Days</span>
+                <label className="text-sm font-medium text-gray-700 dark:text-gray-300">Tenure (Days)</label>
+                <span className="text-black dark:text-white font-bold border-b-2 border-black dark:border-white pb-0.5">{tenureDays} Days</span>
               </div>
               <input
                 type="range"
@@ -110,7 +110,7 @@ export default function LoanConfigPage() {
                 step="1"
                 value={tenureDays}
                 onChange={(e) => setTenureDays(Number(e.target.value))}
-                className="w-full h-1.5 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-black"
+                className="w-full h-1.5 bg-gray-200 dark:bg-gray-700 rounded-lg appearance-none cursor-pointer accent-black dark:accent-white"
               />
               <div className="flex justify-between text-xs text-gray-400 mt-1.5 font-medium">
                 <span>30 Days</span>
@@ -120,37 +120,37 @@ export default function LoanConfigPage() {
           </div>
 
           {/* Breakdown Preview */}
-          <div className="bg-gray-50 border border-gray-200 p-6 rounded-xl space-y-4">
-            <h3 className="text-sm font-semibold text-black mb-3 flex items-center border-b border-gray-200 pb-2">
-              <CheckCircle2 className="w-4 h-4 mr-2 text-black" />
+          <div className="bg-gray-50 dark:bg-[#111] border border-gray-200 dark:border-gray-800 p-6 rounded-xl space-y-4">
+            <h3 className="text-sm font-semibold text-black dark:text-white mb-3 flex items-center border-b border-gray-200 dark:border-gray-800 pb-2">
+              <CheckCircle2 className="w-4 h-4 mr-2 text-black dark:text-white" />
               Repayment Breakdown
             </h3>
             
-            <div className="flex justify-between text-gray-600 text-sm">
+            <div className="flex justify-between text-gray-600 dark:text-gray-400 text-sm">
               <span>Principal Amount</span>
-              <span className="font-medium text-black">₹ {principal.toLocaleString("en-IN")}</span>
+              <span className="font-medium text-black dark:text-white">₹ {principal.toLocaleString("en-IN")}</span>
             </div>
-            <div className="flex justify-between text-gray-600 text-sm">
+            <div className="flex justify-between text-gray-600 dark:text-gray-400 text-sm">
               <span>Interest Rate (Fixed)</span>
-              <span className="font-medium text-black">12% p.a.</span>
+              <span className="font-medium text-black dark:text-white">12% p.a.</span>
             </div>
-            <div className="flex justify-between text-gray-600 text-sm">
+            <div className="flex justify-between text-gray-600 dark:text-gray-400 text-sm">
               <span>Total Simple Interest</span>
-              <span className="font-medium text-black">₹ {math.simpleInterest.toLocaleString("en-IN")}</span>
+              <span className="font-medium text-black dark:text-white">₹ {math.simpleInterest.toLocaleString("en-IN")}</span>
             </div>
             
-            <div className="h-px bg-gray-200 w-full my-2"></div>
+            <div className="h-px bg-gray-200 dark:bg-gray-800 w-full my-2"></div>
             
             <div className="flex justify-between items-center">
-              <span className="font-medium text-gray-900">Total Repayment</span>
-              <span className="font-bold text-black text-xl">₹ {math.totalRepayment.toLocaleString("en-IN")}</span>
+              <span className="font-medium text-gray-900 dark:text-gray-100">Total Repayment</span>
+              <span className="font-bold text-black dark:text-white text-xl">₹ {math.totalRepayment.toLocaleString("en-IN")}</span>
             </div>
           </div>
 
           <button
             type="submit"
             disabled={loading}
-            className="w-full py-3 px-4 bg-black hover:bg-gray-800 text-white font-medium text-base rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-black focus:ring-offset-2 transition-all disabled:opacity-70"
+            className="w-full py-3 px-4 bg-black dark:bg-white hover:bg-gray-800 dark:hover:bg-gray-200 text-white dark:text-black font-medium text-base rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-black dark:focus:ring-white focus:ring-offset-2 transition-all disabled:opacity-70"
           >
             {loading ? "Submitting Application..." : "Apply Now"}
           </button>

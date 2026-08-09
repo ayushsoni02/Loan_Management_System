@@ -39,105 +39,105 @@ export default function PersonalDetailsPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 flex flex-col items-center py-12 px-4 font-sans">
+    <div className="min-h-screen bg-gray-50 dark:bg-[#0a0a0a] flex flex-col items-center py-12 px-4 font-sans transition-colors">
       {/* Steps indicator */}
       <div className="flex items-center space-x-4 mb-8">
-        <div className="flex items-center text-black">
-          <div className="w-8 h-8 rounded-full border-2 border-black flex items-center justify-center font-bold">1</div>
+        <div className="flex items-center text-black dark:text-white">
+          <div className="w-8 h-8 rounded-full border-2 border-black dark:border-white flex items-center justify-center font-bold">1</div>
           <span className="ml-2 font-medium">Personal Details</span>
         </div>
-        <div className="w-12 h-1 bg-gray-300 rounded"></div>
-        <div className="flex items-center text-gray-400">
-          <div className="w-8 h-8 rounded-full border-2 border-gray-300 flex items-center justify-center font-bold">2</div>
+        <div className="w-12 h-1 bg-gray-300 dark:bg-gray-700 rounded"></div>
+        <div className="flex items-center text-gray-400 dark:text-gray-600">
+          <div className="w-8 h-8 rounded-full border-2 border-gray-300 dark:border-gray-700 flex items-center justify-center font-bold">2</div>
         </div>
-        <div className="w-12 h-1 bg-gray-300 rounded"></div>
-        <div className="flex items-center text-gray-400">
-          <div className="w-8 h-8 rounded-full border-2 border-gray-300 flex items-center justify-center font-bold">3</div>
+        <div className="w-12 h-1 bg-gray-300 dark:bg-gray-700 rounded"></div>
+        <div className="flex items-center text-gray-400 dark:text-gray-600">
+          <div className="w-8 h-8 rounded-full border-2 border-gray-300 dark:border-gray-700 flex items-center justify-center font-bold">3</div>
         </div>
       </div>
 
-      <div className="w-full max-w-lg bg-white border border-gray-200 rounded-2xl p-8 shadow-sm">
-        <h2 className="text-2xl font-bold text-black mb-2">Check Eligibility</h2>
-        <p className="text-gray-500 mb-6 text-sm">Enter your details to check if you qualify for a loan.</p>
+      <div className="w-full max-w-lg bg-white dark:bg-black border border-gray-200 dark:border-gray-800 rounded-2xl p-8 shadow-sm">
+        <h2 className="text-2xl font-bold text-black dark:text-white mb-2">Check Eligibility</h2>
+        <p className="text-gray-500 dark:text-gray-400 mb-6 text-sm">Enter your details to check if you qualify for a loan.</p>
 
         <form onSubmit={handleSubmit} className="space-y-5">
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1.5">Full Name (as per PAN)</label>
+            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1.5">Full Name (as per PAN)</label>
             <div className="relative">
               <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                <User className="h-5 w-5 text-gray-400" />
+                <User className="h-5 w-5 text-gray-400 dark:text-gray-500" />
               </div>
               <input
                 type="text"
                 required
                 value={formData.fullName}
                 onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
-                className="w-full pl-10 pr-4 py-2.5 bg-white border border-gray-300 text-black rounded-lg focus:ring-2 focus:ring-black focus:border-black outline-none"
+                className="w-full pl-10 pr-4 py-2.5 bg-white dark:bg-black border border-gray-300 dark:border-gray-700 text-black dark:text-white rounded-lg focus:ring-2 focus:ring-black dark:focus:ring-white outline-none transition-all"
                 placeholder="John Doe"
               />
             </div>
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1.5">PAN Card Number</label>
+            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1.5">PAN Card Number</label>
             <div className="relative">
               <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                <CreditCard className="h-5 w-5 text-gray-400" />
+                <CreditCard className="h-5 w-5 text-gray-400 dark:text-gray-500" />
               </div>
               <input
                 type="text"
                 required
                 value={formData.pan}
                 onChange={(e) => setFormData({ ...formData, pan: e.target.value.toUpperCase() })}
-                className="w-full pl-10 pr-4 py-2.5 bg-white border border-gray-300 text-black rounded-lg focus:ring-2 focus:ring-black focus:border-black outline-none uppercase"
+                className="w-full pl-10 pr-4 py-2.5 bg-white dark:bg-black border border-gray-300 dark:border-gray-700 text-black dark:text-white rounded-lg focus:ring-2 focus:ring-black dark:focus:ring-white outline-none uppercase transition-all"
                 placeholder="ABCDE1234F"
               />
             </div>
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1.5">Date of Birth</label>
+            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1.5">Date of Birth</label>
             <div className="relative">
               <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                <Calendar className="h-5 w-5 text-gray-400" />
+                <Calendar className="h-5 w-5 text-gray-400 dark:text-gray-500" />
               </div>
               <input
                 type="date"
                 required
                 value={formData.dob}
                 onChange={(e) => setFormData({ ...formData, dob: e.target.value })}
-                className="w-full pl-10 pr-4 py-2.5 bg-white border border-gray-300 text-black rounded-lg focus:ring-2 focus:ring-black focus:border-black outline-none"
+                className="w-full pl-10 pr-4 py-2.5 bg-white dark:bg-black border border-gray-300 dark:border-gray-700 text-black dark:text-white rounded-lg focus:ring-2 focus:ring-black dark:focus:ring-white outline-none transition-all [color-scheme:light_dark]"
               />
             </div>
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1.5">Monthly Salary (₹)</label>
+            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1.5">Monthly Salary (₹)</label>
             <div className="relative">
               <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                <span className="text-gray-400 font-medium px-1">₹</span>
+                <span className="text-gray-400 dark:text-gray-500 font-medium px-1">₹</span>
               </div>
               <input
                 type="number"
                 required
                 value={formData.monthlySalary}
                 onChange={(e) => setFormData({ ...formData, monthlySalary: e.target.value })}
-                className="w-full pl-10 pr-4 py-2.5 bg-white border border-gray-300 text-black rounded-lg focus:ring-2 focus:ring-black focus:border-black outline-none"
+                className="w-full pl-10 pr-4 py-2.5 bg-white dark:bg-black border border-gray-300 dark:border-gray-700 text-black dark:text-white rounded-lg focus:ring-2 focus:ring-black dark:focus:ring-white outline-none transition-all"
                 placeholder="50000"
               />
             </div>
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1.5">Employment Mode</label>
+            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1.5">Employment Mode</label>
             <div className="relative">
               <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                <Briefcase className="h-5 w-5 text-gray-400" />
+                <Briefcase className="h-5 w-5 text-gray-400 dark:text-gray-500" />
               </div>
               <select
                 value={formData.employmentMode}
                 onChange={(e) => setFormData({ ...formData, employmentMode: e.target.value })}
-                className="w-full pl-10 pr-4 py-2.5 bg-white border border-gray-300 text-black rounded-lg focus:ring-2 focus:ring-black focus:border-black outline-none appearance-none"
+                className="w-full pl-10 pr-4 py-2.5 bg-white dark:bg-black border border-gray-300 dark:border-gray-700 text-black dark:text-white rounded-lg focus:ring-2 focus:ring-black dark:focus:ring-white outline-none appearance-none transition-all"
               >
                 <option value="salaried">Salaried</option>
                 <option value="self_employed">Self Employed</option>
@@ -149,7 +149,7 @@ export default function PersonalDetailsPage() {
           <button
             type="submit"
             disabled={loading}
-            className="w-full py-2.5 px-4 mt-4 bg-black hover:bg-gray-800 text-white font-medium rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-black focus:ring-offset-2 transition-all disabled:opacity-70"
+            className="w-full py-2.5 px-4 mt-4 bg-black dark:bg-white hover:bg-gray-800 dark:hover:bg-gray-200 text-white dark:text-black font-medium rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-black dark:focus:ring-white focus:ring-offset-2 transition-all disabled:opacity-70"
           >
             {loading ? "Checking Eligibility..." : "Check Eligibility & Continue"}
           </button>

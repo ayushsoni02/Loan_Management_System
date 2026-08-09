@@ -33,47 +33,47 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 flex items-center justify-center p-4 font-sans">
-      <div className="w-full max-w-md bg-white border border-gray-200 rounded-2xl p-8 shadow-sm">
+    <div className="min-h-screen bg-gray-50 dark:bg-[#0a0a0a] flex items-center justify-center p-4 font-sans transition-colors">
+      <div className="w-full max-w-md bg-white dark:bg-black border border-gray-200 dark:border-gray-800 rounded-2xl p-8 shadow-sm">
         
         <div className="text-center mb-8">
-          <div className="bg-gray-100 w-12 h-12 rounded-xl flex items-center justify-center mx-auto mb-4 border border-gray-200">
-            <LogIn className="w-6 h-6 text-black" />
+          <div className="bg-gray-100 dark:bg-gray-900 w-12 h-12 rounded-xl flex items-center justify-center mx-auto mb-4 border border-gray-200 dark:border-gray-800">
+            <LogIn className="w-6 h-6 text-black dark:text-white" />
           </div>
-          <h1 className="text-2xl font-bold text-black mb-2">Welcome Back</h1>
-          <p className="text-gray-500 text-sm">Sign in to your LMS account</p>
+          <h1 className="text-2xl font-bold text-black dark:text-white mb-2">Welcome Back</h1>
+          <p className="text-gray-500 dark:text-gray-400 text-sm">Sign in to your LMS account</p>
         </div>
 
         <form onSubmit={handleSubmit} className="space-y-5">
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1.5">Email Address</label>
+            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1.5">Email Address</label>
             <div className="relative">
               <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                <Mail className="h-5 w-5 text-gray-400" />
+                <Mail className="h-5 w-5 text-gray-400 dark:text-gray-500" />
               </div>
               <input
                 type="email"
                 required
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="w-full pl-10 pr-4 py-2.5 bg-white border border-gray-300 text-black rounded-lg focus:ring-2 focus:ring-black focus:border-black transition-all outline-none"
+                className="w-full pl-10 pr-4 py-2.5 bg-white dark:bg-black border border-gray-300 dark:border-gray-700 text-black dark:text-white rounded-lg focus:ring-2 focus:ring-black dark:focus:ring-white outline-none transition-all"
                 placeholder="you@example.com"
               />
             </div>
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1.5">Password</label>
+            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1.5">Password</label>
             <div className="relative">
               <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                <Lock className="h-5 w-5 text-gray-400" />
+                <Lock className="h-5 w-5 text-gray-400 dark:text-gray-500" />
               </div>
               <input
                 type="password"
                 required
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                className="w-full pl-10 pr-4 py-2.5 bg-white border border-gray-300 text-black rounded-lg focus:ring-2 focus:ring-black focus:border-black transition-all outline-none"
+                className="w-full pl-10 pr-4 py-2.5 bg-white dark:bg-black border border-gray-300 dark:border-gray-700 text-black dark:text-white rounded-lg focus:ring-2 focus:ring-black dark:focus:ring-white outline-none transition-all"
                 placeholder="••••••••"
               />
             </div>
@@ -82,15 +82,15 @@ export default function LoginPage() {
           <button
             type="submit"
             disabled={loading}
-            className="w-full py-2.5 px-4 bg-black hover:bg-gray-800 text-white font-medium rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-black transition-all disabled:opacity-70 disabled:cursor-not-allowed"
+            className="w-full py-2.5 px-4 bg-black dark:bg-white text-white dark:text-black hover:bg-gray-800 dark:hover:bg-gray-200 font-medium rounded-lg transition-all disabled:opacity-70 disabled:cursor-not-allowed"
           >
             {loading ? "Signing in..." : "Sign In"}
           </button>
         </form>
 
-        <p className="mt-8 text-center text-sm text-gray-600">
+        <p className="mt-8 text-center text-sm text-gray-600 dark:text-gray-400">
           Don't have an account?{" "}
-          <Link href="/signup" className="text-black font-semibold hover:underline">
+          <Link href="/signup" className="text-black dark:text-white font-semibold hover:underline">
             Create an account
           </Link>
         </p>
