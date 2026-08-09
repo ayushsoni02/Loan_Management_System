@@ -109,5 +109,3 @@ Executive roles cannot bypass statuses (e.g., Disbursement cannot disburse a loa
 ## Theme Configuration
 The application uses a custom monochrome design system. It defaults to Dark Mode via `next-themes` and relies on Tailwind's `dark:` variant classes to flip high-contrast elements smoothly without hydration flickering. 
 
----
-*Developed as a Full-Stack Engineering Assignment.*
