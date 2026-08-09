@@ -40,15 +40,15 @@ export default function Sidebar() {
   }
 
   return (
-    <div className="w-64 bg-gray-900 border-r border-gray-800 flex flex-col h-screen fixed left-0 top-0 text-gray-300">
-      <div className="p-6 border-b border-gray-800">
-        <h2 className="text-xl font-bold text-white tracking-wider flex items-center gap-2">
-          <div className="w-8 h-8 bg-indigo-600 rounded-lg flex items-center justify-center">LMS</div>
+    <div className="w-64 bg-gray-50 border-r border-gray-200 flex flex-col h-screen fixed left-0 top-0 text-gray-900 font-sans">
+      <div className="p-6 border-b border-gray-200">
+        <h2 className="text-xl font-bold text-black tracking-tight flex items-center gap-2">
+          <div className="w-8 h-8 bg-black text-white rounded-md flex items-center justify-center text-sm font-semibold">LMS</div>
           System
         </h2>
         <div className="mt-4 flex flex-col">
-          <span className="text-sm font-medium text-gray-400">{user?.fullName}</span>
-          <span className="text-xs text-indigo-400 capitalize bg-indigo-500/10 self-start px-2 py-0.5 rounded-full mt-1 border border-indigo-500/20">
+          <span className="text-sm font-medium text-gray-900">{user?.fullName}</span>
+          <span className="text-xs text-gray-600 capitalize bg-gray-200 self-start px-2 py-0.5 rounded-full mt-1 border border-gray-300">
             {user?.role} Role
           </span>
         </div>
@@ -63,13 +63,13 @@ export default function Sidebar() {
               <Link
                 key={item.href}
                 href={item.href}
-                className={`flex items-center px-4 py-3 text-sm font-medium rounded-xl transition-all ${
+                className={`flex items-center px-4 py-2.5 text-sm font-medium rounded-lg transition-all ${
                   isActive
-                    ? "bg-indigo-600/10 text-indigo-400 border border-indigo-500/20"
-                    : "text-gray-400 hover:bg-gray-800 hover:text-gray-200"
+                    ? "bg-gray-200 text-black"
+                    : "text-gray-600 hover:bg-gray-100 hover:text-black"
                 }`}
               >
-                <Icon className={`mr-3 h-5 w-5 ${isActive ? "text-indigo-400" : "text-gray-500"}`} />
+                <Icon className={`mr-3 h-4 w-4 ${isActive ? "text-black" : "text-gray-500"}`} />
                 {item.label}
               </Link>
             );
@@ -77,12 +77,12 @@ export default function Sidebar() {
         </nav>
       </div>
 
-      <div className="p-4 border-t border-gray-800">
+      <div className="p-4 border-t border-gray-200">
         <button
           onClick={logout}
-          className="flex items-center w-full px-4 py-3 text-sm font-medium text-red-400 rounded-xl hover:bg-red-500/10 hover:border-red-500/20 border border-transparent transition-all"
+          className="flex items-center w-full px-4 py-2.5 text-sm font-medium text-gray-700 rounded-lg hover:bg-gray-200 hover:text-black transition-all"
         >
-          <LogOut className="mr-3 h-5 w-5" />
+          <LogOut className="mr-3 h-4 w-4" />
           Logout
         </button>
       </div>
