@@ -3,7 +3,10 @@ import cors from "cors";
 import morgan from "morgan";
 import dotenv from "dotenv";
 import cookieParser from "cookie-parser";
+import path from "path";
 import authRoutes from "./routes/auth.routes";
+import borrowerRoutes from "./routes/borrower.routes";
+import loanRoutes from "./routes/loan.routes";
 
 dotenv.config();
 
@@ -20,6 +23,9 @@ app.use(express.json());
 app.use(cookieParser());
 app.use(morgan("dev"));
 
+// Serve uploaded files statically
+app.use("/uploads", express.static(path.join(process.cwd(), "uploads")));
+
 // Health check route
 app.get("/api/health", (req, res) => {
   res.status(200).json({ success: true, message: "API is healthy!" });
@@ -27,5 +33,7 @@ app.get("/api/health", (req, res) => {
 
 // Routes
 app.use("/api/auth", authRoutes);
+app.use("/api/borrower", borrowerRoutes);
+app.use("/api/loans", loanRoutes);
 
 export default app;
