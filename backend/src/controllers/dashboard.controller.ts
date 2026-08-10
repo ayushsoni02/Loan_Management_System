@@ -142,9 +142,10 @@ export const recordPayment = async (req: Request, res: Response) => {
   try {
     const { id } = req.params;
     const { utrNumber, amount, date } = req.body;
+    const recordedBy = req.user?.id;
 
-    if (!utrNumber || !amount || !date) {
-      return res.status(400).json({ success: false, message: "UTR Number, amount, and date are required" });
+    if (!utrNumber || !amount || !date || !recordedBy) {
+      return res.status(400).json({ success: false, message: "UTR Number, amount, date, and user are required" });
     }
 
     const loan = await LoanApplication.findById(id);
@@ -170,7 +171,7 @@ export const recordPayment = async (req: Request, res: Response) => {
       utrNumber,
       amount: Number(amount),
       paymentDate: new Date(date),
-      recordedBy: req.user?.id,
+      recordedBy,
     });
 
     loan.amountPaid += Number(amount);
@@ -195,7 +196,7 @@ export const recordPayment = async (req: Request, res: Response) => {
 export const getPayments = async (req: Request, res: Response) => {
   try {
     const { id } = req.params;
-    const payments = await Payment.find({ loanApplication: id })
+    const payments = await Payment.find({ loanApplication: id as any })
       .populate("recordedBy", "fullName email")
       .sort({ paymentDate: -1 });
 

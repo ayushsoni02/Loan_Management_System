@@ -8,6 +8,10 @@ export const submitProfile = async (req: Request, res: Response) => {
     const { fullName, pan, dob, monthlySalary, employmentMode } = req.body;
     const userId = req.user?.id;
 
+    if (!userId) {
+      return res.status(401).json({ success: false, message: "Unauthorized" });
+    }
+
     if (!fullName || !pan || !dob || !monthlySalary || !employmentMode) {
       return res.status(400).json({ success: false, message: "All fields are required" });
     }
@@ -82,7 +86,11 @@ export const uploadDocument = async (req: Request, res: Response) => {
 
 export const getProfile = async (req: Request, res: Response) => {
   try {
-    const profile = await BorrowerProfile.findOne({ user: req.user?.id });
+    const userId = req.user?.id;
+    if (!userId) {
+      return res.status(401).json({ success: false, message: "Unauthorized" });
+    }
+    const profile = await BorrowerProfile.findOne({ user: userId });
     if (!profile) {
       return res.status(404).json({ success: false, message: "Profile not found" });
     }
