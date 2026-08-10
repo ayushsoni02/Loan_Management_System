@@ -2,6 +2,9 @@
 
 A robust, full-stack Loan Management System designed to handle end-to-end loan lifecycles. Built with a modern, high-contrast monochrome design (inspired by Cal.com) featuring full Dark/Light mode support.
 
+## 🌐 Live Demo
+- **Frontend App**: [https://loan-management-system-bay.vercel.app](https://loan-management-system-bay.vercel.app)
+- **Backend API**: [https://loan-management-system-g5ll.onrender.com/api/health](https://loan-management-system-g5ll.onrender.com/api/health)
 ## Features
 
 ### **Borrower Journey**
