@@ -22,7 +22,7 @@ export default function DisbursementPage() {
     fetchQueue();
   }, [user, router]);
 
-  const fetchQueue = async () => {
+  async function fetchQueue() {
     try {
       const { data } = await api.get("/dashboard/disbursement/queue");
       if (data.success) {

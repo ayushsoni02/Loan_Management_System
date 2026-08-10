@@ -26,7 +26,7 @@ export default function CollectionPage() {
     fetchLoans();
   }, [user, router]);
 
-  const fetchLoans = async () => {
+  async function fetchLoans() {
     try {
       const { data } = await api.get("/dashboard/collection/active-loans");
       if (data.success) {
