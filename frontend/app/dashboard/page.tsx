@@ -15,9 +15,16 @@ export default function BorrowerDashboardPage() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    if (user && user.role !== "admin" && user.role !== "borrower") {
-      router.push("/unauthorized");
-      return;
+    if (user) {
+      if (user.role === "sales") return router.push("/dashboard/sales");
+      if (user.role === "sanction") return router.push("/dashboard/sanction");
+      if (user.role === "disbursement") return router.push("/dashboard/disbursement");
+      if (user.role === "collection") return router.push("/dashboard/collection");
+
+      if (user.role !== "admin" && user.role !== "borrower") {
+        router.push("/unauthorized");
+        return;
+      }
     }
 
     if (user?.role === "borrower" || user?.role === "admin") {
@@ -113,7 +120,9 @@ export default function BorrowerDashboardPage() {
               {loans.length === 0 ? (
                 <tr>
                   <td colSpan={6} className="px-6 py-8 text-center text-gray-500">
-                    You haven't applied for any loans yet.
+                    {user?.role === "admin" 
+                      ? "System Administrator Account. No personal loans exist." 
+                      : "You haven't applied for any loans yet."}
                   </td>
                 </tr>
               ) : (
